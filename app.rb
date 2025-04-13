@@ -5,14 +5,41 @@ get("/") do
   erb(:rules)
 end
 
-# get("/rock")
-#   erb(:rock)
-# end
+get("/rock") do
+  @user = "rock"
+  @cpu = ["rock","paper","scissors"].sample
+  if @user == @cpu
+    @outcome = "tied"
+  elsif @cpu == "paper"
+    @outcome = "lost"
+  else
+    @outcome = "won"
+  end
+  erb(:user_play)
+end
 
-# get ("/paper")
-#   erb(:paper)
-# end
+get ("/paper") do
+  @user = "paper"
+  @cpu = ["rock","paper","scissors"].sample
+  if @user == @cpu
+    @outcome = "tied"
+  elsif @cpu == "scissors"
+    @outcome = "lost"
+  else
+    @outcome = "won"
+  end
+  erb(:user_play)
+end
 
-# get("/scissors")
-#   erb(:scissors)
-# end
+get("/scissors") do
+  @user = "scissors"
+  @cpu = ["rock","paper","scissors"].sample
+  if @user == @cpu
+    @outcome = "tied"
+  elsif @cpu == "rock"
+    @outcome = "lost"
+  else
+    @outcome = "won"
+  end
+  erb(:user_play)
+end
